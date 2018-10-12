@@ -1,0 +1,50 @@
+<div class="container" *ngIf="userDetails" style="margin-top: 100px">
+  <h1>Edit Profile</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 personal-info">
+
+      <h3>Personal info</h3>
+
+      <form class="form-horizontal" role="form" #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+        <div class="form-group">
+          <label class="col-md-3 control-label"><b>User Id:</b></label>
+          <div class="col-md-8">
+            <input class="form-control" type="text" value="{{userDetails.userId}}" [disabled]="true">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label"><b>Name:</b></label>
+          <div class="col-lg-8">
+            <input class="form-control" name="name" type="text" [(ngModel)]="userDetails.name" required #fNameRef="ngModel">
+            <div *ngIf="fNameRef.invalid && (fNameRef.dirty || fNameRef.touched)" class="alert alert-danger">
+              <div class="error" *ngIf="fNameRef.errors.required">
+                Name is required
+              </div>
+              <div *ngIf="fNameRef.errors.minlength">
+                Name must be at least 3 characters long
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label"><b>Loyalty Card Number:</b></label>
+          <div class="col-md-8">
+            <input class="form-control" type="text" value="{{userDetails.loyaltyCardNumber}}" [disabled]="true">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <input type="submit" class="btn btn-primary pull-right" value="Save Changes">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+
+  </div>
+</div>
+<hr>

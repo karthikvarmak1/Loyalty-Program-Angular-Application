@@ -1,0 +1,33 @@
+.card {
+    margin: 0 auto; 
+    float: none;
+    margin-bottom: 10px; 
+    height: 180px;
+}
+
+.padtop160{
+    padding-top: 160px;
+}
+
+.div_main {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-image: url("../../../assets/images/bg.jpg"); */
+    opacity:1;
+    width : 1350px;
+    height: 600px;
+}
+
+.btn-nav-match{
+    background: #ff6600;
+    color: white;
+}
+
+.card-title{
+    color: #ff6600;
+}
+
+.padtop20 {
+    padding-top: 20px;
+}

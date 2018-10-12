@@ -1,0 +1,35 @@
+<div class="container" *ngIf="userDetails" style="margin-top: 100px">
+  <h1>Wallet</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 wallet-info">
+
+      <form class="form-horizontal" role="form" #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">
+            <b>Loyalty Card Number:</b>
+          </label>
+          <div class="col-md-8">
+            <input class="form-control" readonly type="text" value="{{userDetails.loyaltyCardNumber}}" [disabled]="true">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">
+            <b>Balance:</b>
+          </label>
+          <div class="col-md-8">
+            <input class="form-control" readonly type="text" value="250" [disabled]="true">
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+    <div class="col-md-2"></div>
+
+  </div>
+</div>
+<hr>

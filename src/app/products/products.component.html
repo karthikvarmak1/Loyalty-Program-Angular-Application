@@ -1,0 +1,119 @@
+<div class='panel panel-primary' style="font: normal normal 300 normal 30px / 16px, Open Sans, sans-serif;">
+  <div class='panel-heading text-grey'>
+  </div>
+  <div class='panel-body' style="position: relative;">
+
+    <div class="row" style="margin-top: 25px;  padding: 100px;">
+
+      <div class="col-sm-6">
+        <div class="row">
+          <div style="margin-bottom: 10px;padding-left: 20px; width:100%" id={{category}}>
+            <h2>
+              <b>Electronics</b>
+            </h2>
+            <div class="col-sm-12" style="margin-top: 15px;">
+              <div>
+                <img src="../../assets/images/laptop.jpg">
+                <b>HP Pavilion 15-bc408TX 15.6-inch FHD Gaming Laptop (Intel Core i7-8750H/8GB DDR4/1TB HDD/128GB SSD/Win 10/4
+                  GB GDDR5 Dedicated Graphics) Shadow Black
+                  <br>
+                  <i class="fa fa-rupee"></i>
+                  <span style="color: #ff6600"> 85,000</span>
+                </b>
+                <button type="button" class="btn btn-success btn-sm float-right" (click)="addToCart()" data-toggle="modal" data-target="#myModal">Add To Cart
+                  <i class="fa fa-shopping-cart"></i>
+                </button>
+                <hr>
+              </div>
+              <!-- <hr style="margin-left:-10px;width:100%;border-top: 2px solid rgba(0, 0, 0, 0.97);"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id={{checkCart}}>
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">
+                <span style="color:blue">Info...</span>
+              </h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              This item already exists in your cart!!
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
+        <div *ngIf="cart.length == 0" style="top: 100px;position: sticky;margin-left:30px; ">
+          <h2>
+            <b> Cart Empty</b>
+          </h2>
+
+          <img class="card-img-top" src="../../assets/images/emptycart.jpg" alt="Card image" style="width:250px;height:250px;margin-top: 15px;">
+
+        </div>
+        <div *ngIf="cart.length > 0" style="width:300px;margin-left:20px;top: 100px;position: sticky">
+          <h2>
+            <b>Cart</b>
+          </h2>
+          {{cart.length}} Items
+          <div>
+            <div class="row" *ngFor="let item of cart" style="margin-top: 15px;margin-right:0px;margin-left:0px;">
+              <div class="col-sm-5" style="padding-right:0px;padding-left:0px;">
+                {{item.itemName}}
+
+              </div>
+              <div class="col-sm-3 float-right">
+                <app-number-picker [min]="1" [max]="6" [step]="1" [precision]="1" [inputDisabled]="true" (onChange)="onNumberChanged($event)"></app-number-picker>
+              </div>
+              <div class="col-sm-4" style="text-align:right">
+                {{item.price}}
+              </div>
+            </div>
+          </div>
+          <hr style="margin-left: 0px;border-top: 1px solid rgba(0, 0, 0, 0.97);">
+          <div class=row>
+            <div class="col-sm-9">
+              <b>Subtotal</b>
+            </div>
+            <div class="col-sm-3" style="    padding-left: 0px;
+            padding-right: 0px;">
+              <b>Rs.{{cartValue}}</b>
+            </div>
+          </div>
+          <div class=row>
+            <div class="col-sm-2">
+              <input type="checkbox" name="redeem" [(ngModel)]="redeem" style="width: 20px;
+              height: 20px;">
+            </div>
+            <div class="col-sm-8" style="    padding-left: 0px;
+              padding-right: 0px;">
+              Redeem Points </div>
+              <div class="col-sm-2">
+                250
+              </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1" style="width:100%;margin-top:20px"
+              (click)="getAmountPayable()">
+              PROCEED TO CHECKOUT
+              <i class="fa fa-long-arrow-right"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>

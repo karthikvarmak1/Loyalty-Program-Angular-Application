@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/images/L.ico" alt="logo">
+        <span style="color:aqua">Loyalty Program Application</span>
+      </a>
+    </div>
+    <ul class="navbar-nav navbar-right" *ngIf="!isUserLoggedIn">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/enroll" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <i class="fa fa-user-plus" aria-hidden="true"></i> Enroll</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav navbar-right" *ngIf="isUserLoggedIn">
+      <li>
+        <a class="nav-link" [routerLink]="['/dashboard',userId]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <i class="fa fa-home" aria-hidden="true"></i> Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"[routerLink]="['/profile',userId]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/wallet',userId]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <i class="fa fa-google-wallet" aria-hidden="true"></i> Wallet</a>
+      </li>
+      <li>
+        <button type="button" class="nav-link btn btn-xs" (click)="logout()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <span style="color: rgb(255, 81, 0)">
+            <i class="fa fa-sign-out"></i> Log out</span>
+        </button>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<router-outlet></router-outlet>

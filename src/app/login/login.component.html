@@ -1,0 +1,23 @@
+  <div class="bg">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <div class="box" id="box">
+          <h1 style="color: blue;">Welcome</h1>
+          <input id="userId" name="userId" type="text" (keyup)="onKey($event)" class="form-control" [(ngModel)]="userId" placeholder="&#xf007;  Username..." style="font-family: Arial, FontAwesome;"/>
+          <input id="password" name="password" type="password" (keyup)="onKey($event)" class="form-control" [(ngModel)]="password" placeholder="&#xf084; Password..." style="font-family: Arial, FontAwesome;"/>
+          <h5 *ngIf="invalidCredentials" style="color: red; text-align: center; margin:30px 0;">
+              Invalid partner id and password
+          </h5>
+          <button (click)="login(userId, password)">Login</button>
+          <p>New user?
+            <span>
+              <a style="color: blue;" routerLink="/enroll">Enroll here</a>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+  
